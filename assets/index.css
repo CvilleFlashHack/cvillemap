@@ -1,15 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* fonts */
-.swiss{
-font-family: swiss721condensed;
-}
 
-.swissBold{
-    font-family: "Swiss 721";
-    src: url(Swiss.ttf) format("truetype");
-}
 /* universal */
 
 body {
@@ -35,7 +27,7 @@ textarea {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 2em;
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -51,6 +43,19 @@ textarea {
 
 #map { height: 600px; }
 
+
+#subtitle1 {
+ padding: 5px;
+ float: right;
+ width: 800px;
+ font-size: .4em;
+}
+
+#subtitle2 {
+ float: left;
+ margin-right: 800px;
+ font-size: .4em;
+}
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -75,4 +80,14 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+/* fonts */
+.swiss{
+font-family: swiss721condensed;
+}
+
+.swissBold{
+    font-family: "Swiss 721";
+    src: url(Swiss.ttf) format("truetype");
 }
