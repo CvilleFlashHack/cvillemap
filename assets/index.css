@@ -1,6 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* fonts */
+.swiss{
+font-family: swiss721condensed;
+}
+
+.swissBold{
+    font-family: "Swiss 721";
+    src: url(Swiss.ttf) format("truetype");
+}
 /* universal */
 
 body {
