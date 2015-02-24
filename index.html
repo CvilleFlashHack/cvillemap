@@ -1,8 +1,37 @@
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="assets/index.css">
+
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
 <title>Cville Innovation Map</title>
 </head>
 <body>
-It's a start!
+	<header id="header">
+		<nav id ="nav">
+		<div id="logo"><a href=""> Flash Hack </a> </div>
+		<nav id="nav">
+			<ul>
+			<li><a href="#" title="Link"> Link </a></li>
+			</uL>
+		</nav>
+	</header>
+
+	<div id="mapSlide">
+		<div>
+			 <div id="map"></div>
+			 <script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiZmxhc2hoYWNrY3ZpbGxlIiwiYSI6IkxhZnhJMGcifQ.ZZU34TpzqAerIB2zLyjceA';
+var map = L.mapbox.map('map', 'flashhackcville.la1mnoi7');
+			 </script>
+			<h1> Hi </h1>
+		</div>
+	</div>
+	<div id="infoSection">
+		<div>
+			<div id="bodySection"></div>
+			<h1> It's a Start </h1>
+		</div>
+	</div>
 </body>
 </html>
