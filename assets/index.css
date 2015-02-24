@@ -27,7 +27,7 @@ textarea {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 2em;
+  font-size: 3.5em;
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -38,17 +38,19 @@ textarea {
 #logo:hover {
     color: white;
     text-decoration: none;
-  }
+}
 
-
+.navbar {
+ height: 80px;
+}
 #map { height: 600px; }
 
 
 #subtitle1 {
- padding: 5px;
+ padding: 10px;
  float: right;
  width: 800px;
- font-size: .4em;
+ font-size: .35em;
 }
 
 #subtitle2 {
@@ -66,6 +68,15 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
 }
 
 h2 {
