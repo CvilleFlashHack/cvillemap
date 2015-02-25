@@ -1,11 +1,16 @@
 <html>
 <head>
+
+    <script src='./bower_components/jquery/dist/jquery.min.js'></script>
+
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src='./bower_components/mapbox.js/mapbox.js'></script>
     <link href='./bower_components/mapbox.js/mapbox.css' rel='stylesheet'/>
+
+    <script src='./bower_components/jquery-sheetrock/dist/jquery.sheetrock.min.js'></script>
 
     <link rel="stylesheet" type="text/css" href="assets/index.css">
 
@@ -33,10 +38,6 @@
 	<div id="mapSlide">
 		<div>
 			 <div id="map"></div>
-			 <script>
-                L.mapbox.accessToken = 'pk.eyJ1IjoiZmxhc2hoYWNrY3ZpbGxlIiwiYSI6IkxhZnhJMGcifQ.ZZU34TpzqAerIB2zLyjceA';
-                var map = L.mapbox.map('map', 'flashhackcville.la1mnoi7').setView([38.04, -78.493], 14);
-			 </script>
 			<h1> Hi </h1>
 		</div>
 	</div>
@@ -44,6 +45,48 @@
 		<div>
 			<div id="bodySection"></div>
 			<h1> It's a Start </h1>
+
+            <table id="statistics"></table>
+            <script>
+
+                L.mapbox.accessToken = 'pk.eyJ1IjoibWxha2U5MDAiLCJhIjoiSXV0UEF6dyJ9.8ZrYcafYb59U67LHErUegw';
+                var map = L.mapbox.map('map', 'mlake900.lae6oebe').setView([38.04, -78.493], 14);
+
+                var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/11aIxy4FbfcqwUprsP4FB5tnVXmEu_TRoK6ffLz7s7Rk/edit#gid=66432575';
+
+                var myRowHandler = function(row){
+
+                    for (var key in row.cells){
+                        if (key.toLowerCase().indexOf("gps")>-1){
+
+                            var rawGpsString = row.cells[key];
+                            var coordArray = rawGpsString.split(",", 2);
+
+                            if ($.isNumeric(coordArray[0]) && $.isNumeric(coordArray[1])){
+                                var marker = L.marker(coordArray,{
+                                    title: row.cells.Name,
+                                    riseOnHover: true
+                                });
+
+                                //TODO: replace with handlebars template
+                                marker.bindPopup("<b>" +row.cells.Name + "</b><br>" + row.cells.PhysicalAddress + "<br>Website: <a href='" + row.cells.Website +"'>" + row.cells.Website + "</a>");
+
+                                marker.addTo(map);
+                            }
+
+                        }
+                    }
+
+                    //TODO: return a handlebar template and list on the site below the map
+                };
+
+                $('#statistics').sheetrock({
+                    url: mySpreadsheet,
+                    rowHandler: myRowHandler
+                });
+
+            </script>
+
 		</div>
 	</div>
 </body>
