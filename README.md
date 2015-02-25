@@ -14,6 +14,7 @@ Installing JavaScript Libraries (only use when updating libraries)
 - "bower install jquery-sheetrock"
 - "bower install mapbox.js"
 - "bower install bootstrap"
+- "bower install leaflet.markercluster"
 - add necessary libraries and css to head of file
 
 
