@@ -6,6 +6,7 @@
 
 body {
   padding-top: 60px;
+    background-color: #202020;
 }
 
 section {
@@ -43,7 +44,7 @@ textarea {
 .navbar {
  height: 80px;
 }
-#map { height: 600px; }
+#map { height: 50%; }
 
 
 #subtitle1 {
@@ -100,5 +101,26 @@ font-family: swiss721condensed;
 
 .swissBold{
     font-family: "Swiss 721";
-    src: url(Swiss.ttf) format("truetype");
+    src: url('/Swiss.ttf') format("truetype");
+}
+
+.business_listing_tile {
+    display: block;
+    background: #b4b4b4;
+    margin: 5px;
+    padding: 6px;
+    float:left;
+    width:400px;
+    height: 120px;
+    color: #237cc9;
+    border: 1px solid rgba(243, 255, 255, 0.33);
+    border-radius: 8px;
+}
+.business_listing_tile em {
+    color: #ffffff;
+}
+
+#businessListing {
+    margin-left: 10%;
+    margin-right: 10%;
 }

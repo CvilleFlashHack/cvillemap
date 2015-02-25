@@ -1,6 +1,8 @@
 # cvillemap
 Map the innovation ecosystem around Charlottesville!
 
+Find this site live at: [http://cvillization.com/](http://cvillization.com)
+
 Architecture Overview
 
  - Use Google Forms to populate a Google Docs Spreadsheet which serves as a backend for the static HTML of the website
@@ -17,6 +19,6 @@ Installing JavaScript Libraries (only use when updating libraries)
 
 The Map Itself
 
-- the underlying map tiles and style come from mapbox (not the data points themselves)
+- the underlying map tiles and style come from Mapbox (not the data points themselves)
 - data points are being grabbed from a google doc spreadsheet
 

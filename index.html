@@ -2,6 +2,7 @@
 <head>
 
     <script src='./bower_components/jquery/dist/jquery.min.js'></script>
+    <script src='./bower_components/handlebars/handlebars.min.js'></script>
 
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
@@ -18,76 +19,89 @@
 </head>
 <body>
 
-	<header class="navbar navbar-fixed-top navbar-inverse">
-	 <div id="container">
-	  <div class="swissBold">
-		<nav id ="nav">
-		<div id="logo"> CVILLization  <div id="subtitle1"> Charlottesville's  Innovation Atlas <br>
-		 Explore.find.connect with innovators
-			in charlottesville,  virginia. </div> </div>
-		<nav>
-			<ul class="nav navbar-nav navbar-right">
-			<li><a href="index.html" title="Home"> HOME </a></li>
-			<li><a href="about.html" title="About"> ABOUT </a></li>
-			<li><a href="add.html" title="Add"> ADD YOUR COMPANY</a></li>
-			</ul>
-		</nav>
-	  </div>
-	</header>
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <div id="container">
+        <div class="swissBold">
+            <nav id="nav">
+                <div id="logo"> CVILLization
+                    <div id="subtitle1"> Charlottesville's Innovation Atlas <br>
+                        Explore.find.connect with innovators
+                        in charlottesville, virginia.
+                    </div>
+                </div>
+                <nav>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.html" title="Home"> HOME </a></li>
+                        <li><a href="about.html" title="About"> ABOUT </a></li>
+                        <li><a href="add.html" title="Add"> ADD YOUR COMPANY</a></li>
+                    </ul>
+                </nav>
+            </nav>
+        </div>
+        </div>
+</header>
 
-	<div id="mapSlide">
-		<div>
-			 <div id="map"></div>
-			<h1> Hi </h1>
-		</div>
-	</div>
-	<div id="infoSection">
-		<div>
-			<div id="bodySection"></div>
-			<h1> It's a Start </h1>
+<div id="map"></div>
+<div id="infoSection">
+    <div>
+        <div id="bodySection"></div>
 
-            <table id="statistics"></table>
-            <script>
+        <ul id="businessListing">
+            <script id="businessTemplate" type="text/x-handlebars-template">
+                <li class="business_listing_tile">
+                    <strong>{{cells.Name}}</strong><br>
+                    <em>{{cells.Tagline}}</em><br>
+                    <a href="{{cells.Website}}">{{cells.Website}}</a>
+                </li>
+            </script>
+        </ul>
 
-                L.mapbox.accessToken = 'pk.eyJ1IjoibWxha2U5MDAiLCJhIjoiSXV0UEF6dyJ9.8ZrYcafYb59U67LHErUegw';
-                var map = L.mapbox.map('map', 'mlake900.lae6oebe').setView([38.04, -78.493], 14);
 
-                var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/11aIxy4FbfcqwUprsP4FB5tnVXmEu_TRoK6ffLz7s7Rk/edit#gid=66432575';
+        <script>
 
-                var myRowHandler = function(row){
+            var businessTemplate = Handlebars.compile($('#businessTemplate').html());
 
-                    for (var key in row.cells){
-                        if (key.toLowerCase().indexOf("gps")>-1){
+            L.mapbox.accessToken = 'pk.eyJ1IjoibWxha2U5MDAiLCJhIjoiSXV0UEF6dyJ9.8ZrYcafYb59U67LHErUegw';
+            var map = L.mapbox.map('map', 'mlake900.lae6oebe').setView([38.04, -78.493], 14);
 
-                            var rawGpsString = row.cells[key];
-                            var coordArray = rawGpsString.split(",", 2);
+            var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/11aIxy4FbfcqwUprsP4FB5tnVXmEu_TRoK6ffLz7s7Rk/edit#gid=66432575';
 
-                            if ($.isNumeric(coordArray[0]) && $.isNumeric(coordArray[1])){
-                                var marker = L.marker(coordArray,{
-                                    title: row.cells.Name,
-                                    riseOnHover: true
-                                });
+            var myRowHandler = function (row) {
 
-                                //TODO: replace with handlebars template
-                                marker.bindPopup("<b>" +row.cells.Name + "</b><br>" + row.cells.PhysicalAddress + "<br>Website: <a href='" + row.cells.Website +"'>" + row.cells.Website + "</a>");
+                for (var key in row.cells) {
+                    if (key.toLowerCase().indexOf("gps") > -1) {
 
-                                marker.addTo(map);
-                            }
+                        var rawGpsString = row.cells[key];
+                        var coordArray = rawGpsString.split(",", 2);
 
+                        if ($.isNumeric(coordArray[0]) && $.isNumeric(coordArray[1])) {
+                            var marker = L.marker(coordArray, {
+                                title: row.cells.Name,
+                                riseOnHover: true
+                            });
+
+                            //TODO: replace with handlebars template
+                            marker.bindPopup("<b>" + row.cells.Name + "</b><br>" + row.cells.PhysicalAddress + "<br><em>" + row.cells.Tagline + "</em><br><a target='_blank' href='" + row.cells.Website + "'>" + row.cells.Website + "</a>");
+
+                            marker.addTo(map);
                         }
                     }
+                }
 
-                    //TODO: return a handlebar template and list on the site below the map
-                };
+                return businessTemplate(row);
+            };
 
-                $('#statistics').sheetrock({
-                    url: mySpreadsheet,
-                    rowHandler: myRowHandler
-                });
 
-            </script>
 
-		</div>
-	</div>
+            $('#businessListing').sheetrock({
+                url: mySpreadsheet,
+                headersOff: true,
+                rowHandler: myRowHandler
+            });
+
+        </script>
+
+    </div>
+</div>
 </body>
 </html>
