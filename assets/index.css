@@ -105,12 +105,13 @@ font-family: swiss721condensed;
 }
 
 .business_listing_tile {
-    display: block;
+    display: inline-block;
     background: #b4b4b4;
     margin: 5px;
     padding: 6px;
     float:left;
-    width:400px;
+    min-width: 300px;
+    max-width: 600px;
     height: 120px;
     color: #237cc9;
     border: 1px solid rgba(243, 255, 255, 0.33);
@@ -120,7 +121,14 @@ font-family: swiss721condensed;
     color: #ffffff;
 }
 
+#businessListing li {
+    margin-left: 0;
+
+
+}
+
 #businessListing {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 0;
 }
