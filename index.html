@@ -1,18 +1,25 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Cville Innovation Map</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<title>Cvillization</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Charlootesville Innovation Atlas"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+
     <script src='./bower_components/jquery/dist/jquery.min.js'></script>
     <script src='./bower_components/handlebars/handlebars.min.js'></script>
 
-    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <!--Disabling because these styles conflict with the template-->
+    <!--<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css">-->
+
     <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src='./bower_components/mapbox.js/mapbox.js'></script>
     <link href='./bower_components/mapbox.js/mapbox.css' rel='stylesheet'/>
-
-
 
     <script src='./bower_components/mapbox.js/mapbox.js'></script>
 
@@ -20,129 +27,238 @@
     <link rel="stylesheet" href="./bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="./bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
 
-
     <script src='./bower_components/jquery-sheetrock/dist/jquery.sheetrock.min.js'></script>
 
-    <link rel="stylesheet" type="text/css" href="assets/index.css">
+    <!--<link rel="stylesheet" type="text/css" href="assets/index.css">-->
 
+    <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
 
-<header class="navbar navbar-fixed-top navbar-inverse">
-    <div id="container">
-        <div class="swissBold">
-            <nav id="nav">
-                <div id="logo"> CVILLization
-                    <div id="subtitle1"> Charlottesville's Innovation Atlas <br>
-                        Explore.find.connect with innovators
-                        in charlottesville, virginia.
-                    </div>
-                </div>
-                <nav>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.html" title="Home"> HOME </a></li>
-                        <li><a href="about.html" title="About"> ABOUT </a></li>
-                        <li><a href="add.html" title="Add"> ADD YOUR COMPANY</a></li>
-                    </ul>
-                </nav>
-            </nav>
-        </div>
-        </div>
-</header>
+	<section class="hero">
+		<header>
+			<div class="wrapper">
+				<a href="#"><img src="img/logo.png" class="logo" alt="" title=""/></a>
+				<a href="#" class="hamburger"></a>
+				<nav>
+					<ul>
+						<li><a href="#">Why Charlottesville?</a></li>
+						<li><a href="#">About this Site</a></li>
+					</ul>
+					<a href="#" class="login_btn">Add Your Business</a>
+				</nav>
+			</div>
+		</header><!--  end header section  -->
 
-<div id="map"></div>
-<div id="infoSection">
-    <div>
-        <div id="bodySection"></div>
-
-        <ul id="businessListing">
-            <script id="businessTemplate" type="text/x-handlebars-template">
-                <li class="business_listing_tile">
-                    <strong>{{cells.Name}}</strong><br>
-                    <em>{{cells.Tagline}}</em><br>
-                    <a href="{{cells.Website}}">{{cells.Website}}</a>
-                </li>
-            </script>
-        </ul>
+			<section class="caption">
+				<h2 class="caption">Find You Dream Home</h2>
+				<h3 class="properties">Appartements - Houses - Mansions</h3>
+			</section>
+	</section><!--  end hero section  -->
 
 
-        <script>
+	<section class="search">
+		<div class="wrapper">
+			<form action="#" method="post">
+				<input type="text" id="search" name="search" placeholder="What are you looking for?"  autocomplete="off"/>
+				<input type="submit" id="submit_search" name="submit_search"/>
+			</form>
+			<a href="#" class="advanced_search_icon" id="advanced_search_btn"></a>
+		</div>
+
+		<div class="advanced_search">
+			<div class="wrapper">
+				<span class="arrow"></span>
+				<form action="#" method="post">
+					<div class="search_fields">
+						<input type="text" class="float" id="check_in_date" name="check_in_date" placeholder="Check In Date"  autocomplete="off">
+
+						<hr class="field_sep float"/>
+
+						<input type="text" class="float" id="check_out_date" name="check_out_date" placeholder="Check Out Date"  autocomplete="off">
+					</div>
+					<div class="search_fields">
+						<input type="text" class="float" id="min_price" name="min_price" placeholder="Min. Price"  autocomplete="off">
+
+						<hr class="field_sep float"/>
+
+						<input type="text" class="float" id="max_price" name="max_price" placeholder="Max. price"  autocomplete="off">
+					</div>
+					<input type="text" id="keywords" name="keywords" placeholder="Keywords"  autocomplete="off">
+					<input type="submit" id="submit_search" name="submit_search"/>
+				</form>
+			</div>
+		</div><!--  end advanced search section  -->
+	</section><!--  end search section  -->
 
 
+	<section class="listings">
+		<div class="wrapper">
+			<ul class="properties_list">
+				<li>
+					<a href="#">
+						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$2500</span>
+					<div class="property_details">
+						<h1>
+							<a href="#">Fuisque dictum tortor at purus libero</a>
+						</h1>
+						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$1000</span>
+					<div class="property_details">
+						<h1>
+							<a href="#">Fuisque dictum tortor at purus libero</a>
+						</h1>
+						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$500</span>
+					<div class="property_details">
+						<h1>
+							<a href="#">Fuisque dictum tortor at purus libero</a>
+						</h1>
+						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$2500</span>
+					<div class="property_details">
+						<h1>
+							<a href="#">Fuisque dictum tortor at purus libero</a>
+						</h1>
+						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$1000</span>
+					<div class="property_details">
+						<h1>
+							<a href="#">Fuisque dictum tortor at purus libero</a>
+						</h1>
+						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$500</span>
+					<div class="property_details">
+						<h1>
+							<a href="#">Fuisque dictum tortor at purus libero</a>
+						</h1>
+						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$2500</span>
+					<div class="property_details">
+						<h1>
+							<a href="#">Fuisque dictum tortor at purus libero</a>
+						</h1>
+						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$1000</span>
+					<div class="property_details">
+						<h1>
+							<a href="#">Fuisque dictum tortor at purus libero</a>
+						</h1>
+						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$500</span>
+					<div class="property_details">
+						<h1>
+							<a href="#">Fuisque dictum tortor at purus libero</a>
+						</h1>
+						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
+					</div>
+				</li>
+			</ul>
+			<div class="more_listing">
+				<a href="#" class="more_listing_btn">View More Listings</a>
+			</div>
+		</div>
+	</section>	<!--  end listing section  -->
 
-            var businessTemplate = Handlebars.compile($('#businessTemplate').html());
+	<footer>
+		<div class="wrapper footer">
+			<ul>
+				<li class="links">
+					<ul>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Support</a></li>
+						<li><a href="#">Terms</a></li>
+						<li><a href="#">Policy</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</li>
 
-            L.mapbox.accessToken = 'pk.eyJ1IjoibWxha2U5MDAiLCJhIjoiSXV0UEF6dyJ9.8ZrYcafYb59U67LHErUegw';
-            var map = L.mapbox.map('map', 'mlake900.lae6oebe').setView([38.04, -78.493], 14);
+				<li class="links">
+					<ul>
+						<li><a href="#">Appartements</a></li>
+						<li><a href="#">Houses</a></li>
+						<li><a href="#">Villas</a></li>
+						<li><a href="#">Mansions</a></li>
+						<li><a href="#">...</a></li>
+					</ul>
+				</li>
 
-            var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/11aIxy4FbfcqwUprsP4FB5tnVXmEu_TRoK6ffLz7s7Rk/edit#gid=66432575';
+				<li class="links">
+					<ul>
+						<li><a href="#">New York</a></li>
+						<li><a href="#">Los Anglos</a></li>
+						<li><a href="#">Miami</a></li>
+						<li><a href="#">Washington</a></li>
+						<li><a href="#">...</a></li>
+					</ul>
+				</li>
 
-            var markers = new L.MarkerClusterGroup({
-                showCoverageOnHover: false,
-                animateAddingMarkers: true,
-                maxClusterRadius: 35,
-                disableClusteringAtZoom: 15
-            });
+				<li class="about">
+					<p>La Casa is real estate minimal html5 website template, designed and coded by pixelhint, tellus varius, dictum erat vel, maximus tellus. Sed vitae auctor ipsum</p>
+					<ul>
+						<li><a href="http://facebook.com/cvillization" class="facebook" target="_blank"></a></li>
+						<li><a href="http://twitter.com/cvillization" class="twitter" target="_blank"></a></li>
+						<li><a href="http://plus.google.com/+cvillization" class="google" target="_blank"></a></li>
+						<li><a href="#" class="skype"></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
 
-
-            map.addLayer(markers);
-
-            var myRowHandler = function (row) {
-
-                for (var key in row.cells) {
-                    if (key.toLowerCase().indexOf("gps") > -1) {
-
-                        var rawGpsString = row.cells[key];
-                        var coordArray = rawGpsString.split(",", 2);
-
-                        if ($.isNumeric(coordArray[0]) && $.isNumeric(coordArray[1])) {
-                            var marker = L.marker(coordArray, {
-                                title: row.cells.Name,
-                                riseOnHover: true
-                            });
-
-                            //TODO: replace with handlebars template
-                            marker.bindPopup("<b>" + row.cells.Name + "</b><br>" + row.cells.PhysicalAddress + "<br><em>" + row.cells.Tagline + "</em><br><a target='_blank' href='" + row.cells.Website + "'>" + row.cells.Website + "</a>");
-
-
-                            markers.addLayer(marker);
-
-                        }
-                    }
-                }
-
-                return businessTemplate(row);
-            };
-
-
-            var myUserCallback = function (options){
-
-                //do nothing
-
-            };
-
-
-            $('#businessListing').sheetrock({
-                url: mySpreadsheet,
-                headersOff: true,
-                rowGroups: false,
-                rowHandler: myRowHandler,
-                userCallback: myUserCallback
-            });
-
-        </script>
-
-    </div>
-</div>
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-60151884-1', 'auto');
-    ga('send', 'pageview');
-
-</script>
+		<div class="copyrights wrapper">
+			Copyright © 2015 Cvillization. All Rights Reserved.
+		</div>
+	</footer><!--  end footer  -->
+	
 </body>
 </html>
