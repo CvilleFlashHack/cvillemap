@@ -29,184 +29,99 @@
 
     <script src='./bower_components/jquery-sheetrock/dist/jquery.sheetrock.min.js'></script>
 
-    <!--<link rel="stylesheet" type="text/css" href="assets/index.css">-->
 
     <script type="text/javascript" src="main.js"></script>
+
+
 </head>
 <body>
 
-	<section class="hero">
-		<header>
-			<div class="wrapper">
-				<a href="#"><img src="img/logo.png" class="logo" alt="" title=""/></a>
-				<a href="#" class="hamburger"></a>
-				<nav>
-					<ul>
-						<li><a href="#">Why Charlottesville?</a></li>
-						<li><a href="#">About this Site</a></li>
-					</ul>
-					<a href="#" class="login_btn">Add Your Business</a>
-				</nav>
-			</div>
-		</header><!--  end header section  -->
 
-			<section class="caption">
-				<h2 class="caption">Find You Dream Home</h2>
-				<h3 class="properties">Appartements - Houses - Mansions</h3>
-			</section>
-	</section><!--  end hero section  -->
+<header class="header">
+    <div class="wrapper">
+        <div class="mobile_head">
+            CVILLIZATION
+        </div>
+        <div class="tablet_head">
+            Charlottesville, Virginia <br/>
+            INNOVATION ATLAS
+        </div>
+        <a href="#" class="hamburger"></a>
+        <nav>
+            <ul>
+                <li><a href="charlottesville.html">Why Charlottesville?</a></li>
+                <li><a href="sponsorship.html">Become a Sponsor</a></li>
+            </ul>
+            <a href="add.html" class="login_btn">Add Your Business</a>
+        </nav>
+    </div>
+</header>
+<!--  end header section  -->
 
 
-	<section class="search">
-		<div class="wrapper">
-			<form action="#" method="post">
-				<input type="text" id="search" name="search" placeholder="What are you looking for?"  autocomplete="off"/>
-				<input type="submit" id="submit_search" name="submit_search"/>
-			</form>
-			<a href="#" class="advanced_search_icon" id="advanced_search_btn"></a>
-		</div>
+    <section id="map" class="map"></section>
 
-		<div class="advanced_search">
-			<div class="wrapper">
-				<span class="arrow"></span>
-				<form action="#" method="post">
-					<div class="search_fields">
-						<input type="text" class="float" id="check_in_date" name="check_in_date" placeholder="Check In Date"  autocomplete="off">
+	<!--<section class="search">-->
+		<!--<div class="wrapper">-->
+			<!--<form action="#" method="post">-->
+				<!--<input type="text" id="search" name="search" placeholder="What are you looking for?"  autocomplete="off"/>-->
+				<!--<input type="submit" id="submit_search" name="submit_search"/>-->
+			<!--</form>-->
+			<!--<a href="#" class="advanced_search_icon" id="advanced_search_btn"></a>-->
+		<!--</div>-->
 
-						<hr class="field_sep float"/>
+		<!--<div class="advanced_search">-->
+			<!--<div class="wrapper">-->
+				<!--<span class="arrow"></span>-->
+				<!--<form action="#" method="post">-->
+					<!--<div class="search_fields">-->
+						<!--<input type="text" class="float" id="check_in_date" name="check_in_date" placeholder="Check In Date"  autocomplete="off">-->
 
-						<input type="text" class="float" id="check_out_date" name="check_out_date" placeholder="Check Out Date"  autocomplete="off">
-					</div>
-					<div class="search_fields">
-						<input type="text" class="float" id="min_price" name="min_price" placeholder="Min. Price"  autocomplete="off">
+						<!--<hr class="field_sep float"/>-->
 
-						<hr class="field_sep float"/>
+						<!--<input type="text" class="float" id="check_out_date" name="check_out_date" placeholder="Check Out Date"  autocomplete="off">-->
+					<!--</div>-->
+					<!--<div class="search_fields">-->
+						<!--<input type="text" class="float" id="min_price" name="min_price" placeholder="Min. Price"  autocomplete="off">-->
 
-						<input type="text" class="float" id="max_price" name="max_price" placeholder="Max. price"  autocomplete="off">
-					</div>
-					<input type="text" id="keywords" name="keywords" placeholder="Keywords"  autocomplete="off">
-					<input type="submit" id="submit_search" name="submit_search"/>
-				</form>
-			</div>
-		</div><!--  end advanced search section  -->
-	</section><!--  end search section  -->
+						<!--<hr class="field_sep float"/>-->
 
+						<!--<input type="text" class="float" id="max_price" name="max_price" placeholder="Max. price"  autocomplete="off">-->
+					<!--</div>-->
+					<!--<input type="text" id="keywords" name="keywords" placeholder="Keywords"  autocomplete="off">-->
+					<!--<input type="submit" id="submit_search" name="submit_search"/>-->
+				<!--</form>-->
+			<!--</div>-->
+		<!--</div>&lt;!&ndash;  end advanced search section  &ndash;&gt;-->
+	<!--</section>&lt;!&ndash;  end search section  &ndash;&gt;-->
+
+    <script id="business_template" type="text/x-handlebars-template">
+        <li>
+            <a href="#">
+                <img src="img/property_1.jpg" alt="" title="" class="property_img"/>
+            </a>
+            <span class="price">Hiring!</span>
+
+            <div class="property_details">
+                <h1>
+                    <a target="_blank" href="{{cells.Website}}">{{cells.Name}}</a>
+                </h1>
+
+                <h2>{{cells.Tagline}} <br/><span class="property_size">(x-x employees)</span></h2>
+            </div>
+        </li>
+    </script>
 
 	<section class="listings">
 		<div class="wrapper">
-			<ul class="properties_list">
-				<li>
-					<a href="#">
-						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$2500</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$1000</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$500</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$2500</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$1000</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$500</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$2500</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$1000</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$500</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-			</ul>
-			<div class="more_listing">
-				<a href="#" class="more_listing_btn">View More Listings</a>
-			</div>
+            <ul id="business_listings" class="properties_list">
+
+                <!-- tiles get dynamically populated here -->
+
+            </ul>
+			<!--<div class="more_listing">-->
+				<!--<a href="#" class="more_listing_btn">View More Listings</a>-->
+			<!--</div>-->
 		</div>
 	</section>	<!--  end listing section  -->
 

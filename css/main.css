@@ -167,18 +167,18 @@ header nav .login_btn:hover{
 
 /*  Hero Section  */
 
-.hero{
+.map {
     width: 100%;
     height: 800px;
     position: relative;
-    background: url('../img/hero.jpg') no-repeat bottom center;
+    /*background: url('../img/hero.jpg') no-repeat bottom center;*/
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
 }
 
-.hero .caption{
+.map .caption{
     width: 100%;
     position: absolute;
     text-align: center;
@@ -186,7 +186,7 @@ header nav .login_btn:hover{
     margin-top: -105px;
 }
 
-.hero .caption h2{
+.map .caption h2{
     color: #fff;
     font-family: "P22 Corinthia";
     font-size: 100px;
@@ -196,7 +196,7 @@ header nav .login_btn:hover{
     display: block;
 }
 
-.hero .caption h3{
+.map .caption h3{
     color: #fff;
     font-family: "lato-regular", Helvetica, Arial, sans-serif;
     font-size: 14px;
