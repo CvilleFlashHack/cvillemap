@@ -124,7 +124,6 @@ header a.hamburger.opned{
 
 header nav{
     float: right;
-    opacity: 1;
 }
 
 
@@ -781,7 +780,7 @@ footer .copyrights a.ph_link{
 
     header nav{
         position: absolute;
-        opacity: 0;
+        display: none;
         width: 92.72727272727273%;
         top: 95px;
         left: 3.636363636363636%;
@@ -793,7 +792,8 @@ footer .copyrights a.ph_link{
     }
 
     header nav.active{
-        opacity: 1;
+
+        display: block;
     }
 
     header nav .login_btn{
