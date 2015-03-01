@@ -1,3 +1,73 @@
+var uvaIcon = L.icon({
+    iconUrl: 'map_icons/tech.svg',
+    iconSize: [40, 40],
+    iconAnchor: [20, 40],
+    popupAnchor: [0, -34]
+});
+
+function createIconForRow(row) {
+    var icon;
+
+    var companyType = row.cells["IsthisaCOMPANYorSTARTUPinCharlottesville?"];
+
+    companyType = companyType.split(",")[0];
+
+    var filename = companyType.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+
+    //determine the size based on number of employees
+
+    var iconSize;
+    switch (row.cells['Numberofemployees']) {
+
+        case "1 - 5":
+            iconSize = [20, 20];
+            break;
+        case "6 - 10":
+            iconSize = [30, 30];
+            break;
+        case "11 - 20":
+            iconSize = [40, 40];
+            break;
+        case "21 - 50":
+            iconSize = [50, 50];
+            break;
+        case ">50":
+            iconSize = [60, 60];
+            break;
+        default:
+            iconSize = [40, 40];
+    }
+
+    var iconAnchor = [iconSize[0]/2, iconSize[1]];
+    var popupAnchor = [0, (iconSize[1] * -1) + 4];
+
+
+    if (row.cells["IsthisaPLACEinCville?"].toLowerCase().indexOf("coffee") > -1){
+        filename = "coffee";
+    }
+
+
+    if (filename === '') {
+        filename = 'unknown';
+    }
+
+    if (row.cells["UVAorCharlottesvilleMetroArea?"] === "UVA") {
+        //filename = filename + "-uva";
+        //filename = ""
+    }
+
+    icon = L.icon({
+        iconUrl: 'map_icons/ic_' + filename + '.svg',
+        iconSize: iconSize,
+        iconAnchor: iconAnchor,
+        popupAnchor: popupAnchor
+    });
+
+    return icon;
+}
+
+
+
 $(document).ready(function(){
 
 
@@ -10,6 +80,8 @@ $(document).ready(function(){
     //map.touchZoom.disable();
     //map.doubleClickZoom.disable();
     map.scrollWheelZoom.disable();
+
+    L.control.fullscreen().addTo(map);
 
     var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/11aIxy4FbfcqwUprsP4FB5tnVXmEu_TRoK6ffLz7s7Rk/edit#gid=66432575';
 
@@ -32,13 +104,17 @@ $(document).ready(function(){
                 var coordArray = rawGpsString.split(",", 2);
 
                 if ($.isNumeric(coordArray[0]) && $.isNumeric(coordArray[1])) {
+                    var icon = createIconForRow(row);
+
                     var marker = L.marker(coordArray, {
                         title: row.cells.Name,
-                        riseOnHover: true
+                        riseOnHover: true,
+                        icon: icon
                     });
 
+
                     //TODO: replace with handlebars template
-                    marker.bindPopup("<b>" + row.cells.Name + "</b><br>" + row.cells.PhysicalAddress + "<br><em>" + row.cells.Tagline + "</em><br><a target='_blank' href='" + row.cells.Website + "'>" + row.cells.Website + "</a>");
+                    marker.bindPopup("<b>" + row.cells.Name + "</b><br>" + row.cells['Numberofemployees'] + "<br>" + row.cells.PhysicalAddress + "<br><em>" + row.cells.Tagline + "</em><br><a target='_blank' href='" + row.cells.Website + "'>" + row.cells.Website + "</a>");
 
 
                     markers.addLayer(marker);

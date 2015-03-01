@@ -1,0 +1,15 @@
+{
+  "name": "Leaflet.fullscreen",
+  "homepage": "https://github.com/Leaflet/Leaflet.fullscreen",
+  "version": "0.0.4",
+  "_release": "0.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.4",
+    "commit": "eafb9f50a274ed9379bad62c56e437a4df7d1337"
+  },
+  "_source": "git://github.com/Leaflet/Leaflet.fullscreen.git",
+  "_target": "~0.0.4",
+  "_originalSource": "Leaflet/Leaflet.fullscreen",
+  "_direct": true
+}

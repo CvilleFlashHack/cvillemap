@@ -15,6 +15,7 @@ Installing JavaScript Libraries (only use when updating libraries)
 - "bower install mapbox.js"
 - "bower install bootstrap"
 - "bower install leaflet.markercluster"
+- "bower install Leaflet/Leaflet.fullscreen"
 - add necessary libraries and css to head of file
 
 
