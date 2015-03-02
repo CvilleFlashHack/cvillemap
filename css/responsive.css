@@ -67,6 +67,14 @@ height:90px;
 margin-top: 5px;
 }
 
+.filter_container {
+    padding-top: 8px;
+    height:80px;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dadada;
+    text-align: center;
+}
 
 /*  General CSS  */
 body{
@@ -453,8 +461,8 @@ header nav .login_btn:hover{
 
 /*  listings section  */
 .listings{
-    padding: 100px 0;
-    background-color: #fafafa;
+    padding: 40px 0;
+    background-color: #f6f6f6;
 }
 
 .listings ul.properties_list{
@@ -478,17 +486,13 @@ header nav .login_btn:hover{
 }
 
 
-.listings ul.properties_list li .price{
+.listings ul.properties_list li .hiring {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    padding: 15px 20px;
-    background: #ffffff;
-    color: #514d4d;
-    font-family: "lato-bold", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 1px;
+    right: 25px;
+    bottom: 25px;
+    color: #03a9f4;
+    font-family: "lato-regular", Helvetica, Arial, sans-serif;
+    font-size: 12pt;
 
     border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -505,7 +509,7 @@ header nav .login_btn:hover{
     background-color: #fff;
     width: 87.64705882352941%;
     padding: 2.941176470588235% 5.882352941176471% 4.117647058823529% 5.882352941176471%;
-    border: 1px solid #f2f1f1;
+    border: 1px solid #e2e1e1;
 
     height:200px;
 

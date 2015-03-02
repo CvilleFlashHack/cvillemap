@@ -70,6 +70,10 @@
         <div id="map" class="map"></div>
         <i class="dropshadow"></i>
         <div style="height: 4px; width: 100%;background-color: #03a9f4"></div>
+        <div class="filter_container">
+            <span style="font-family: roboto-slab, sans-serif; font-size: 18pt; color: #212121">Innovation Atlas</span><br><br>
+            <span style="font-family: sans-serif; color:#989898; padding-top: 4px">(filtering coming soon!)</span>
+        </div>
     </section>
 
 	<!--<section class="search">-->
@@ -111,7 +115,7 @@
             <!--<a href="#">-->
                 <!--<img src="img/placeholder.jpg" alt="" title="" class="property_img"/>-->
             <!--</a>-->
-            <!--<span class="price">Hiring!</span>-->
+
 
             <div class="property_details">
                 <img src="{{cells.keyUrl}}" width="30px" style="position:absolute; top:10px; left:10px;" />
@@ -125,7 +129,9 @@
                         {{cells.Numberofemployees}} employees
                     {{/if}}</span></h2>
                 </div>
-
+                {{#if cells.isHiring}}
+                    <span class="hiring">Hiring!</span>
+                {{/if}}
             </div>
         </li>
     </script>

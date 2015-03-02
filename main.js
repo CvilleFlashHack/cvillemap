@@ -130,6 +130,7 @@ $(document).ready(function(){
             }
         }
 
+        row.cells["isHiring"] = row.cells["NowHiring?"] === 'Yes';
         return businessTemplate(row);
     };
 
