@@ -57,7 +57,7 @@
         <nav>
             <ul>
                 <li><a href="charlottesville.html">Why Charlottesville?</a></li>
-                <li><a href="sponsorship.html">Become a Sponsor</a></li>
+                <li><a href="sponsorship.html">Sponsorship</a></li>
             </ul>
             <a href="add.html" class="login_btn">Add Your Business</a>
         </nav>
@@ -114,14 +114,18 @@
             <!--<span class="price">Hiring!</span>-->
 
             <div class="property_details">
-                <h1>
-                    <a target="_blank" href="{{cells.Website}}">{{cells.Name}}</a>
-                </h1>
+                <img src="{{cells.keyUrl}}" width="30px" style="position:absolute; top:10px; left:10px;" />
+                <div style="margin-left: 26px;">
+                    <h1 style="display:inline">
+                        <a target="_blank" href="{{cells.Website}}">{{cells.Name}}</a>
+                    </h1>
 
-                <h2>{{cells.Tagline}} <br/><span class="property_size">
+                    <h2>{{cells.Tagline}} <br/><span class="property_size">
                     {{#if cells.Numberofemployees}}
                         {{cells.Numberofemployees}} employees
                     {{/if}}</span></h2>
+                </div>
+
             </div>
         </li>
     </script>
@@ -133,9 +137,6 @@
                 <!-- tiles get dynamically populated here -->
 
             </ul>
-			<!--<div class="more_listing">-->
-				<!--<a href="#" class="more_listing_btn">View More Listings</a>-->
-			<!--</div>-->
 		</div>
 	</section>	<!--  end listing section  -->
 
@@ -146,7 +147,7 @@
 					<ul>
 						<li><a href="index.html">Home</a></li>
 						<li><a href="charlottesville.html">Why Charlottesville?</a></li>
-						<li><a href="sponsorship.html">Become a Sponsor</a></li>
+						<li><a href="sponsorship.html">Sponsorship</a></li>
 						<li><a href="add.html">Add Your Business</a></li>
 						<li><a href="#">Contact</a></li>
 					</ul>

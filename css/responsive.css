@@ -36,6 +36,18 @@
 }
 
 
+@font-face {
+    font-family: 'roboto-slab';
+    src: url('../fonts/RobotoSlab-Regular-webfont.eot');
+    src: url('../fonts/RobotoSlab-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/RobotoSlab-Regular-webfont.woff') format('woff'),
+    url('../fonts/RobotoSlab-Regular-webfont.ttf') format('truetype'),
+    url('../fonts/RobotoSlab-Regular-webfont.svg#RobotoSlabRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 
 .dropshadow {
 position: absolute;
@@ -495,6 +507,8 @@ header nav .login_btn:hover{
     padding: 2.941176470588235% 5.882352941176471% 4.117647058823529% 5.882352941176471%;
     border: 1px solid #f2f1f1;
 
+    height:200px;
+
     transition: all .2s linear;
     -webkit-transition: all .2s linear;
     -moz-transition: all .2s linear;
@@ -507,9 +521,8 @@ header nav .login_btn:hover{
 
 .listings ul li .property_details h1{
     color: #666464;
-    font-family: "lato-bold", Helvetica, Arial, sans-serif;
+    font-family: roboto-slab, sans-serif;
     font-size: 16px!important;
-    font-weight: bold;
     margin-bottom: 5px;
     line-height: 28px;
 }
@@ -517,6 +530,9 @@ header nav .login_btn:hover{
 .listings ul li .property_details h1 a{
     text-decoration: none;
     color: #666464;
+}
+.listings ul li .property_details h1 a:hover{
+    text-decoration: underline;
 }
 
 .listings ul li .property_details h2{
@@ -576,7 +592,7 @@ header nav .login_btn:hover{
 /*  footer  */
 footer{
     padding-top: 100px;
-    background: #95badf;
+    background: #03a9f4;
 }
 
 footer .footer > ul{
@@ -692,10 +708,8 @@ footer .copyrights a.ph_link{
 
 
 .tablet_head {
-    font-family: lato-bold, Helvetica, Arial, sans-serif;
     position: absolute;
     float: left;
-    color: #50f58b;
     margin-top: 20px;
     font-size: x-large visibility : visible;
 }
@@ -715,6 +729,10 @@ footer .copyrights a.ph_link{
 
 /* desktop */
 @media (max-width: 1150px){
+    .tablet_head {
+        visibility: hidden;
+    }
+
     .wrapper{
         padding: 0 40px;
         max-width: 1020px;
@@ -758,6 +776,7 @@ footer .copyrights a.ph_link{
 
  /*smaller than tablet*/
 @media (max-width:800px){
+
     .map {
         height: 300px;
     }
@@ -918,6 +937,19 @@ footer .copyrights a.ph_link{
 
 /* mobile */
 @media (max-width:500px){
+
+    header {
+        height:60px;
+    }
+    .header_mark {
+        height:50px;
+    }
+    header a.hamburger {
+        margin-top: 21px;
+    }
+    header nav.active {
+        top:55px;
+    }
     .tablet_head {
         visibility: hidden;
     }

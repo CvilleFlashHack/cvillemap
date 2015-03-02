@@ -46,6 +46,14 @@ function createIconForRow(row) {
         filename = "coffee";
     }
 
+    // these are hacks just to get us through - think there are some questions to ask surrounding how to group things
+    if (filename === 'social_innovation'){
+        filename = 'innovation';
+    }
+
+    if (filename === 'architecture'){
+        filename = 'unknown';
+    }
 
     if (filename === '') {
         filename = 'unknown';
@@ -85,7 +93,7 @@ $(document).ready(function(){
 
     var markers = new L.MarkerClusterGroup({
         showCoverageOnHover: false,
-        animateAddingMarkers: true,
+        animateAddingMarkers: false,
         maxClusterRadius: 35,
         disableClusteringAtZoom: 15
     });
@@ -109,7 +117,8 @@ $(document).ready(function(){
                         riseOnHover: true,
                         icon: icon
                     });
-
+                    //TODO: remove the _uva hack
+                    row.cells['keyUrl'] = icon.options.iconUrl.replace('ic_', 'ic_key_').replace('_uva', '');
 
                     //TODO: replace with handlebars template
                     marker.bindPopup("<b>" + row.cells.Name + "</b><br>" + row.cells['Numberofemployees'] + "<br>" + row.cells.PhysicalAddress + "<br><em>" + row.cells.Tagline + "</em><br><a target='_blank' href='" + row.cells.Website + "'>" + row.cells.Website + "</a>");
@@ -137,6 +146,7 @@ $(document).ready(function(){
         headersOff: true,
         rowGroups: false,
         rowHandler: myRowHandler,
+        sql: 'select * order by %Name%',
         userCallback: myUserCallback
     });
 
