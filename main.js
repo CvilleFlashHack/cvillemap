@@ -49,11 +49,9 @@ function createIconForRow(row) {
 
     if (filename === '') {
         filename = 'unknown';
-    }
+    } else if (row.cells["UVAorCharlottesvilleMetroArea?"] === "UVA") {
+        filename = filename + "_uva";
 
-    if (row.cells["UVAorCharlottesvilleMetroArea?"] === "UVA") {
-        //filename = filename + "-uva";
-        //filename = ""
     }
 
     icon = L.icon({

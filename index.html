@@ -44,12 +44,14 @@
 
 <header class="header">
     <div class="wrapper">
-        <div class="mobile_head">
-            CVILLIZATION
-        </div>
-        <div class="tablet_head">
-            Charlottesville, Virginia <br/>
-            INNOVATION ATLAS
+        <a href="index.html">
+            <img class="header_mark" src="img/header_logo_mark_cvillization.svg">
+        </a>
+
+        <div class="tablet_head" style="display:inline">
+            <a href="index.html">
+                <img style="height: 70px;" src="img/header_logo_type_cvillization.svg">
+            </a>
         </div>
         <a href="#" class="hamburger"></a>
         <nav>
@@ -64,7 +66,11 @@
 <!--  end header section  -->
 
 
-    <section id="map" class="map"></section>
+    <section style="position: relative;overflow: hidden;">
+        <div id="map" class="map"></div>
+        <i class="dropshadow"></i>
+        <div style="height: 4px; width: 100%;background-color: #03a9f4"></div>
+    </section>
 
 	<!--<section class="search">-->
 		<!--<div class="wrapper">-->
