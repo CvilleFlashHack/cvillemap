@@ -108,9 +108,9 @@
 
     <script id="business_template" type="text/x-handlebars-template">
         <li>
-            <a href="#">
-                <img src="img/placeholder.jpg" alt="" title="" class="property_img"/>
-            </a>
+            <!--<a href="#">-->
+                <!--<img src="img/placeholder.jpg" alt="" title="" class="property_img"/>-->
+            <!--</a>-->
             <!--<span class="price">Hiring!</span>-->
 
             <div class="property_details">
@@ -118,7 +118,10 @@
                     <a target="_blank" href="{{cells.Website}}">{{cells.Name}}</a>
                 </h1>
 
-                <h2>{{cells.Tagline}} <br/><span class="property_size">(x-x employees)</span></h2>
+                <h2>{{cells.Tagline}} <br/><span class="property_size">
+                    {{#if cells.Numberofemployees}}
+                        {{cells.Numberofemployees}} employees
+                    {{/if}}</span></h2>
             </div>
         </li>
     </script>
