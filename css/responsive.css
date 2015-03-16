@@ -580,37 +580,6 @@ header nav .login_btn:hover{
     margin: 84px 0 22px 0;
 }
 
-.listings .more_listing_btn{
-    text-decoration: none;
-    padding: 20px 40px;
-    border: 2px solid #bfd9f1;
-    border-radius: 30px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    -o-border-radius: 30px;
-    color: #afcbe6;
-    font-family: "lato-regular", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
-
-    transition: all .2s linear;
-    -webkit-transition: all .2s linear;
-    -moz-transition: all .2s linear;
-    -o-transition: all .2s linear;
-}
-
-.listings .more_listing_btn:hover{
-    color: #a0c3e5;
-    border: 2px solid #a0c3e5;    
-}
-
-
-
-
-
-
 
 
 
@@ -997,7 +966,7 @@ footer .copyrights a.ph_link{
 
     .listings ul.properties_list li{
         width: 100%;
-        margin-bottom: 60px!important;
+        margin-bottom: 20px!important;
     }
 
     .listings ul.properties_list li:last-child{
