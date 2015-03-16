@@ -1,9 +1,3 @@
-var uvaIcon = L.icon({
-    iconUrl: 'map_icons/tech.svg',
-    iconSize: [40, 40],
-    iconAnchor: [20, 40],
-    popupAnchor: [0, -34]
-});
 
 function createIconForRow(row) {
     var icon;
@@ -56,11 +50,13 @@ function createIconForRow(row) {
     }
 
     if (filename === '') {
-        filename = 'unknown';
-    } else if (row.cells["UVAorCharlottesvilleMetroArea?"] === "UVA") {
-        filename = filename + "_uva";
-
+        if (row.cells["UVAorCharlottesvilleMetroArea?"] === "UVA") {
+            filename = "uva";
+        } else {
+            filename = 'unknown';
+        }
     }
+
 
     icon = L.icon({
         iconUrl: 'map_icons/ic_' + filename + '.svg',
@@ -117,8 +113,7 @@ $(document).ready(function(){
                         riseOnHover: true,
                         icon: icon
                     });
-                    //TODO: remove the _uva hack
-                    row.cells['keyUrl'] = icon.options.iconUrl.replace('ic_', 'ic_key_').replace('_uva', '');
+                    row.cells['keyUrl'] = icon.options.iconUrl.replace('ic_', 'ic_key_');
 
                     //TODO: replace with handlebars template
                     marker.bindPopup("<b>" + row.cells.Name + "</b><br>" + row.cells['Numberofemployees'] + "<br>" + row.cells.PhysicalAddress + "<br><em>" + row.cells.Tagline + "</em><br><a target='_blank' href='" + row.cells.Website + "'>" + row.cells.Website + "</a>");
