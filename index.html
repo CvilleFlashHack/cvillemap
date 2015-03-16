@@ -84,10 +84,10 @@
 
 
             <div class="property_details">
-                <img src="{{cells.keyUrl}}" width="30px" style="position:absolute; top:10px; left:10px;" />
+                <img src="{{cells.keyUrl}}" class="card_key" />
                 <div style="margin-left: 26px;">
                     <h1 style="display:inline">
-                        <a target="_blank" href="{{cells.Website}}">{{cells.Name}}</a>
+                        {{cells.Name}}
                     </h1>
 
                     <h2>{{cells.Tagline}} <br/><span class="property_size">
@@ -99,9 +99,12 @@
                     <span class="hiring"><img src="map_icons/ic_key_hiring.svg" /> Hiring!</span>
                 {{/if}}
                 {{#if cells.Website}}
-                    <!--<a target="_blank" href="{{cells.Website}}">-->
-                        <!--Visit website-->
-                    <!--</a>-->
+                <span class="visit_website">
+                    <a target="_blank" href="{{cells.Website}}">
+                        <img src="map_icons/ic_launch_to_website.svg" />
+                        Visit website
+                    </a>
+                </span>
                 {{/if}}
             </div>
         </li>

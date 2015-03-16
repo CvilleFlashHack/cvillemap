@@ -500,6 +500,14 @@ header nav .login_btn:hover{
     vertical-align: top;
 }
 
+img.card_key {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left:10px;
+}
+
 
 .listings ul.properties_list li .hiring {
     position: absolute;
@@ -508,20 +516,38 @@ header nav .login_btn:hover{
     color: #03a9f4;
     font-family: "lato-regular", Helvetica, Arial, sans-serif;
     font-size: 12pt;
-
-    border-radius: 2px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -o-border-radius: 2px;
 }
 
 .hiring img {
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     vertical-align: middle;
     margin-right: 5px;
 }
 
+.listings ul.properties_list li .visit_website {
+    position: absolute;
+    left: 10px;
+    bottom: 5px;
+    color: #03a9f4;
+    font-family: "lato-regular", Helvetica, Arial, sans-serif;
+    font-size: 12pt;
+}
+.visit_website a {
+    color: #03a9f4;
+    text-decoration: none;
+}
+.visit_website a:hover {
+    text-decoration: underline;
+}
+
+
+.visit_website img {
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
 
 .listings ul.properties_list li:nth-child(3n+0){
     margin-right: 0;
