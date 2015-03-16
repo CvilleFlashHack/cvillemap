@@ -932,6 +932,10 @@ footer .copyrights a.ph_link{
 
 @media (max-width:700px){
 
+    .wrapper{
+        padding: 0 20px;
+    }
+
     .search .advanced_search #check_in_date,
     .search .advanced_search #check_out_date,
     .search .advanced_search #min_price,
