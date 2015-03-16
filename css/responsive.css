@@ -503,8 +503,8 @@ header nav .login_btn:hover{
 
 .listings ul.properties_list li .hiring {
     position: absolute;
-    right: 25px;
-    bottom: 25px;
+    right: 15px;
+    bottom: 5px;
     color: #03a9f4;
     font-family: "lato-regular", Helvetica, Arial, sans-serif;
     font-size: 12pt;
@@ -513,6 +513,13 @@ header nav .login_btn:hover{
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -o-border-radius: 2px;
+}
+
+.hiring img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
 
