@@ -76,7 +76,7 @@ $(document).ready(function(){
     var businessTemplate = Handlebars.compile($('#business_template').html());
 
     L.mapbox.accessToken = 'pk.eyJ1IjoibWxha2U5MDAiLCJhIjoiSXV0UEF6dyJ9.8ZrYcafYb59U67LHErUegw';
-    var map = L.mapbox.map('map', 'mlake900.lae6oebe').setView([38.04, -78.493], 14);
+    var map = L.mapbox.map('map', 'mlake900.lae6oebe').setView([38.03, -78.480], 15);
 
     //map.dragging.disable();
     //map.touchZoom.disable();
