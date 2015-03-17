@@ -84,14 +84,19 @@ $(document).ready(function(){
     var businessTemplate = Handlebars.compile($('#business_template').html());
 
     L.mapbox.accessToken = 'pk.eyJ1IjoibWxha2U5MDAiLCJhIjoiSXV0UEF6dyJ9.8ZrYcafYb59U67LHErUegw';
-    var map = L.mapbox.map('map', 'mlake900.lae6oebe').setView([38.03, -78.480], 15);
+    var map = L.mapbox.map('map', 'mlake900.lae6oebe', {zoomControl: true
+
+    }).setView([38.03, -78.480], 15);
 
     //map.dragging.disable();
     //map.touchZoom.disable();
     //map.doubleClickZoom.disable();
     map.scrollWheelZoom.disable();
 
-    L.control.fullscreen().addTo(map);
+    map.zoomControl.setPosition('bottomright');
+
+    L.control.fullscreen({position: "bottomright"}).addTo(map);
+
 
     var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/11aIxy4FbfcqwUprsP4FB5tnVXmEu_TRoK6ffLz7s7Rk/edit#gid=66432575';
 
