@@ -38,6 +38,10 @@ function createIconForRow(row) {
 
     if (row.cells["IsthisaPLACEinCville?"].toLowerCase().indexOf("coffee") > -1){
         filename = "coffee";
+    } else if (row.cells["IsthisaPLACEinCville?"].toLowerCase().indexOf("winery") > -1){
+        filename = "winery";
+    } else if (row.cells["IsthisaPLACEinCville?"].toLowerCase().indexOf("brewery") > -1){
+        filename = "brewery";
     }
 
     // these are hacks just to get us through - think there are some questions to ask surrounding how to group things
@@ -113,20 +117,23 @@ $(document).ready(function(){
     var myRowHandler = function (row) {
 
         for (var key in row.cells) {
+
+            var icon = createIconForRow(row);
+            row.cells['keyUrl'] = icon.options.iconUrl.replace('ic_', 'ic_key_');
+
             if (key.toLowerCase().indexOf("gps") > -1) {
 
                 var rawGpsString = row.cells[key];
                 var coordArray = rawGpsString.split(",", 2);
 
                 if ($.isNumeric(coordArray[0]) && $.isNumeric(coordArray[1])) {
-                    var icon = createIconForRow(row);
 
                     var marker = L.marker(coordArray, {
                         title: row.cells.Name,
                         riseOnHover: true,
                         icon: icon
                     });
-                    row.cells['keyUrl'] = icon.options.iconUrl.replace('ic_', 'ic_key_');
+
 
                     //TODO: replace with handlebars template
                     marker.bindPopup("<b>" + row.cells.Name + "</b><br>" + row.cells['Numberofemployees'] + "<br>" + row.cells.PhysicalAddress + "<br><em>" + row.cells.Tagline + "</em><br><a target='_blank' href='" + row.cells.Website + "'>" + row.cells.Website + "</a>");
