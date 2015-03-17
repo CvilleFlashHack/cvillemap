@@ -113,7 +113,16 @@
                     {{/if}}</span></h2>
                 </div>
                 {{#if cells.isHiring}}
-                    <span class="hiring"><img src="map_icons/ic_key_hiring.svg" /> Hiring!</span>
+                    {{#if cells.HiringWebpage}}
+                            <span class="hiring">
+                                <a target="_blank" href="{{cells.HiringWebpage}}">
+                                <img src="map_icons/ic_key_hiring.svg" /> Hiring!</a>
+                            </span>
+
+                    {{else}}
+                        <span class="hiring"><img src="map_icons/ic_key_hiring.svg" /> Hiring!</span>
+                    {{/if}}
+
                 {{/if}}
                 {{#if cells.Website}}
                 <span class="visit_website">

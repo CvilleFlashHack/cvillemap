@@ -90,7 +90,7 @@
 .legend li img {
     width:30px;
     height: 30px;
-    vertical-align: middle;
+    vertical-align: -87%;
     margin-right:4px;
 }
 
@@ -559,6 +559,13 @@ img.card_key {
     height: 26px;
     vertical-align: middle;
     margin-right: 5px;
+}
+.hiring a {
+    color: #03a9f4;
+    text-decoration: none;
+}
+.hiring a:hover {
+    text-decoration: underline;
 }
 
 .listings ul.properties_list li .visit_website {
