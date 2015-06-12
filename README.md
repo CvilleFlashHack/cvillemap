@@ -24,3 +24,5 @@ The Map Itself
 - the underlying map tiles and style come from Mapbox (not the data points themselves)
 - data points are being grabbed from a google doc spreadsheet
 
+Deployment Workflow
+- Commit to master, then merge to the "gh-pages" branch and push
