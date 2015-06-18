@@ -1,4 +1,4 @@
-# cvillemap
+# Cvillization Map
 Map the innovation ecosystem around Charlottesville!
 
 Find this site live at: [http://cvillization.com/](http://cvillization.com)
@@ -26,3 +26,4 @@ The Map Itself
 
 Deployment Workflow
 - Commit to master, then merge to the "gh-pages" branch and push
+- Github pages is used to statically host the site and the CNAME file is the pointer for the domain (see [here.](https://help.github.com/articles/creating-project-pages-manually/))
