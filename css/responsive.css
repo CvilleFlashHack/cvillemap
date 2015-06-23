@@ -544,6 +544,11 @@ img.card_key {
     left:10px;
 }
 
+.card_address {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #6472ff;
+}
+
 
 .listings ul.properties_list li .hiring {
     position: absolute;

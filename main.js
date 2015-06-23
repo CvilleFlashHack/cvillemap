@@ -75,6 +75,7 @@ function createIconForRow(row) {
 
 
 $(document).ready(function(){
+
     /*  Hamburger Menu & Icon  */
     $('.hamburger').on('click', function(e){
 
