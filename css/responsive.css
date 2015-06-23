@@ -115,7 +115,7 @@
     height: 42px;
 }
 
-.inactive {
+.filter_inactive {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
     /*filter: gray;*/

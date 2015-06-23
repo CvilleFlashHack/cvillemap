@@ -84,6 +84,12 @@ $(document).ready(function(){
         $('header nav').toggleClass('active');
 
     });
+    /*  Filter Icons States  */
+    $('.filter_container li img').on('click', function(e){
+
+        $(this).toggleClass('filter_inactive');
+
+    });
 
 
     var businessTemplate = Handlebars.compile($('#business_template').html());
