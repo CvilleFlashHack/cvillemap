@@ -63,12 +63,13 @@
 .legend {
     position: absolute;
     display: block;
-    margin-left: 12%;
+    margin-left: 0%;
+    margin-top: 14.6%;
     top:0;
     width: 220px;
     z-index: 1;
     list-style: none;
-    background-color: rgba(255, 255, 255, 0.90);
+    background-color: rgba(255, 255, 255, 0.80);
 
     /* IE 5.5+ support #BB000000 is ~70% opacity on black */
     filter:progid:DXImageTransform.Microsoft.gradient(
@@ -113,6 +114,7 @@
 .filter_container li img {
     width: 42px;
     height: 42px;
+    cursor: pointer;
 }
 
 .filter_inactive {
@@ -565,7 +567,8 @@ img.card_key {
 
 .card_address {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #6472ff;
+    font-size: 9pt;
+    color: #827f84;
 }
 
 
