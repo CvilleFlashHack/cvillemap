@@ -154,7 +154,7 @@ function processRows(activeList) {
 
         var icon = createIconForRow(row);
         var card_filename = icon.options.iconUrl.replace('ic_', 'ic_key_');
-        if (!card_filename.includes('ic_key_uva')) {
+        if(card_filename.indexOf('ic_key_uva.svg') <= -1){
             card_filename = card_filename.replace('_uva', '');
         }
         row.cells['keyUrl'] = card_filename;
