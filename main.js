@@ -125,10 +125,10 @@ function processRows(activeList) {
                     === activeFilter.toUpperCase()
                     ||
                     row.cells["IsthisaPLACEinCville?"].toUpperCase()
-                        .includes(activeFilter.toUpperCase())
+                        .indexOf(activeFilter.toUpperCase()) > -1
                     ||
                     row.cells["UVAorCharlottesvilleMetroArea?"].toUpperCase()
-                        .includes(activeFilter.toUpperCase())
+                        .indexOf(activeFilter.toUpperCase()) > -1
                 ) {
                     includeRow = true;
                     numberOfElement++;
