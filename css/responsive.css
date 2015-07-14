@@ -141,15 +141,15 @@ ul.img-list li {
 }
 
 span.text-content {
-    background: rgba(255, 255, 255, 0);
-    color: #3c3c3c;
+    background: rgba(201, 201, 201, 0);
+    color: #858585;
     cursor: pointer;
     display: inline-block;
     height: 10px;
-    left: -17px;
+    left: -23px;
     position: absolute;
     top: 13px;
-    width: 80px;
+    width: 90px;
     opacity: 0;
 }
 
