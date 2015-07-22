@@ -195,7 +195,7 @@ function processRows(activeList) {
                         title: row.cells.Name,
                         riseOnHover: true,
                         icon: icon,
-                        bounceOnAdd: true
+                        //bounceOnAdd: true
                     });
                     //NOTE: we ONLY want to create a marker if there's an actual GPS point specified
 
