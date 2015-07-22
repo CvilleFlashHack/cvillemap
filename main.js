@@ -7,10 +7,12 @@ var markers = new L.MarkerClusterGroup({
 
 var businessTemplate;
 
+var modalTemplate;
+
 function createIconForRow(row) {
     var icon;
 
-    var companyType = row.cells["IsthisaCOMPANYorSTARTUPinCharlottesville?"];
+    var companyType = row.cells["WhattypeofCOMPANYareyou?"];
 
     companyType = companyType.split(",")[0];
 
@@ -102,6 +104,16 @@ function updateMap() {
     //TODO: somehow determine that none are selected, so pass all as active
     processRows(activeList);
 
+    /*  JQuery Dialog for Business Cards  */
+    $('.card_title, #modal-background, #modal-close').on('click', function (e){
+
+        console.log(this.card_title)
+        //$('#modal-content').empty();
+        //$('#modal-content').append(modalTemplate(row));
+        $("#modal-content, #modal-background").toggleClass("modal_active");
+
+    });
+
 }
 
 function processRows(activeList) {
@@ -121,7 +133,7 @@ function processRows(activeList) {
 
                 var activeFilter = activeList[activeIdx];
 
-                if (row.cells["IsthisaCOMPANYorSTARTUPinCharlottesville?"].toUpperCase()
+                if (row.cells["WhattypeofCOMPANYareyou?"].toUpperCase()
                     === activeFilter.toUpperCase()
                     ||
                     row.cells["IsthisaPLACEinCville?"].toUpperCase()
@@ -170,12 +182,13 @@ function processRows(activeList) {
                     var marker = L.marker(coordArray, {
                         title: row.cells.Name,
                         riseOnHover: true,
-                        icon: icon
+                        icon: icon,
+                        //bounceOnAdd: true
                     });
                     //NOTE: we ONLY want to create a marker if there's an actual GPS point specified
 
                     //TODO: replace with handlebars template
-                    marker.bindPopup("<b>" + row.cells.Name + "</b><br>" + row.cells['Numberofemployees'] + "<br>" + row.cells.PhysicalAddress + "<br><em>" + row.cells.Tagline + "</em><br><a target='_blank' href='" + row.cells.Website + "'>" + row.cells.Website + "</a>");
+                    marker.bindPopup("<b>" + row.cells.Name + "</b><br>" + row.cells['Numberofemployees'] + "<br>" + row.cells.PhysicalAddress + "<br><em>" + row.cells.OneLineDescriptionofYourCompany + "</em><br><a target='_blank' href='" + row.cells.Website + "'>" + row.cells.Website + "</a>");
 
                     markers.addLayer(marker);
                 }
@@ -186,6 +199,9 @@ function processRows(activeList) {
 
         //TODO: add row item to business template
         $('#business_listings').append(businessTemplate(row));
+
+        $('#modal-content').append(modalTemplate(row));
+
 
     }
     console.log(numberOfElement);
@@ -210,14 +226,15 @@ $(document).ready(function () {
 
     });
 
-
     businessTemplate = Handlebars.compile($('#business_template').html());
+
+    modalTemplate = Handlebars.compile($('#modal_template').html());
 
     L.mapbox.accessToken = 'pk.eyJ1IjoibWxha2U5MDAiLCJhIjoiSXV0UEF6dyJ9.8ZrYcafYb59U67LHErUegw';
     var map = L.mapbox.map('map', 'mlake900.lae6oebe', {
         zoomControl: true
 
-    }).setView([38.03, -78.480], 15);
+    }).setView([38.032, -78.492], 15);
 
     //map.dragging.disable();
     //map.touchZoom.disable();
@@ -229,7 +246,7 @@ $(document).ready(function () {
     L.control.fullscreen({position: "bottomright"}).addTo(map);
 
 
-    var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/11aIxy4FbfcqwUprsP4FB5tnVXmEu_TRoK6ffLz7s7Rk/edit#gid=66432575';
+    var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/11aIxy4FbfcqwUprsP4FB5tnVXmEu_TRoK6ffLz7s7Rk/edit?pli=1#gid=66432575';
 
 
     map.addLayer(markers);
@@ -249,6 +266,7 @@ $(document).ready(function () {
         updateMap();
 
     };
+
 
 
     $('#business_listings').sheetrock({

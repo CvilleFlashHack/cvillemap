@@ -37,6 +37,8 @@
 
     <script type="text/javascript" src="main.js"></script>
 
+    <script src="./bower_components/leaflet.bouncemarker-master/bouncemarker.js"></script>
+
 
 </head>
 <body>
@@ -145,11 +147,11 @@
             <div class="property_details">
                 <img src="{{cells.keyUrl}}" class="card_key" />
                 <div style="margin-left: 26px;">
-                    <h1 style="display:inline">
+                    <h1 class="card_title">
                         {{cells.Name}}
                     </h1>
 
-                    <h2>{{cells.Tagline}} <br/><span class="property_size">
+                    <h2>{{cells.OneLineDescriptionofYourCompany}} <br/><span class="property_size">
                     {{#if cells.Numberofemployees}}
                         {{cells.Numberofemployees}} employees
                     {{/if}}</span></h2>
@@ -181,6 +183,7 @@
         </li>
     </script>
 
+
 	<section class="listings">
 		<div class="wrapper">
             <ul id="business_listings" class="properties_list">
@@ -190,6 +193,37 @@
             </ul>
 		</div>
 	</section>	<!--  end listing section  -->
+
+    <script id="modal_template" type="text/x-handlebars-template">
+        <li>
+             <div class="dialog_content">
+
+
+                 <h3 class="modal_title">
+                     {{cells.Name}}
+                 </h3>
+
+                 <h3>Description</h3>
+
+                 <p>{{cells.LongerDescription}}</p>
+
+                 <h3>Contact Information</h3>
+
+                 <p>{{cells.Website}}</p>
+
+                 <h3>Address</h3>
+
+                 <p>{{cells.PhysicalAddress}}</p>
+
+             </div>
+        </li>
+    </script>
+
+    <div id="modal-background"></div>
+    <div id="modal-content">
+        <button id="modal-close" style="float:right">X</button>
+
+    </div>​
 
 	<footer>
 		<div class="wrapper footer">
