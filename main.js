@@ -103,14 +103,26 @@ function updateMap() {
 
     //TODO: somehow determine that none are selected, so pass all as active
     processRows(activeList);
-
+    $('.card_title, #modal-background, #modal-close').off('click');
     /*  JQuery Dialog for Business Cards  */
     $('.card_title, #modal-background, #modal-close').on('click', function (e){
 
-        console.log(this.card_title)
         //$('#modal-content').empty();
         //$('#modal-content').append(modalTemplate(row));
         $("#modal-content, #modal-background").toggleClass("modal_active");
+
+    });
+
+    $('.card_title').on('click', function (e) {
+
+        var index = $(this).attr("rowindex");
+
+        var modal = $('#company_content');
+
+        modal.empty();
+
+        modal.append(modalTemplate(rowList[index]));
+
 
     });
 
@@ -183,7 +195,7 @@ function processRows(activeList) {
                         title: row.cells.Name,
                         riseOnHover: true,
                         icon: icon,
-                        //bounceOnAdd: true
+                        bounceOnAdd: true
                     });
                     //NOTE: we ONLY want to create a marker if there's an actual GPS point specified
 
@@ -191,16 +203,15 @@ function processRows(activeList) {
                     marker.bindPopup("<b>" + row.cells.Name + "</b><br>" + row.cells['Numberofemployees'] + "<br>" + row.cells.PhysicalAddress + "<br><em>" + row.cells.OneLineDescriptionofYourCompany + "</em><br><a target='_blank' href='" + row.cells.Website + "'>" + row.cells.Website + "</a>");
 
                     markers.addLayer(marker);
+
                 }
             }
         }
 
         row.cells["isHiring"] = row.cells["NowHiring?"] === 'Yes';
 
-        //TODO: add row item to business template
+        row.idx = idx;
         $('#business_listings').append(businessTemplate(row));
-
-        $('#modal-content').append(modalTemplate(row));
 
 
     }
