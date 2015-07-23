@@ -736,6 +736,7 @@ img.card_key {
     opacity: .60;
     -webkit-opacity: .5;
     -moz-opacity: .5;
+    transition: opacity 400ms ease-in;
     filter: alpha(opacity=50);
     z-index: 1000;
 }
@@ -757,13 +758,31 @@ img.card_key {
     bottom:30px;
     padding: 10px;
     position: fixed;
-
+    border-radius: 10px;
     z-index: 1000;
 }
 
-#modal-close {
-    horiz-align: right ;
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 17px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    height: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
 }
+
+.close:hover { background: #00d9ff; }
 
 #modal-content.modal_active, #modal-background.modal_active {
     display: block;
