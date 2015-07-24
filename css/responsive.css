@@ -607,10 +607,13 @@ img.card_key {
 .card_title {
     display:inline;
     cursor: pointer;
+    text-decoration: none;
+    color:black;
 }
 
-.card_title :hover {
+.card_title:hover {
     text-decoration: underline;
+    color:grey;
 }
 
 
@@ -789,7 +792,7 @@ img.card_key {
 }
 
 .modal_title {
-    font-size: large;
+    font-size: 30px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
