@@ -5,6 +5,10 @@ var markers = new L.MarkerClusterGroup({
     disableClusteringAtZoom: 15
 });
 
+var modal_markers = new L.FeatureGroup();
+
+var modal_map;
+
 var businessTemplate;
 
 var modalTemplate;
@@ -86,7 +90,7 @@ function createIconForRow(row) {
 
 var rowList = [];
 
-function updateMap() {
+    function updateMap() {
 
     //window.alert("updateMap called");
     markers.clearLayers();
@@ -115,14 +119,38 @@ function updateMap() {
 
     $('.card_title').on('click', function (e) {
 
+        modal_markers.clearLayers();
+
         var index = $(this).attr("rowindex");
 
         var modal = $('#company_content');
 
         modal.empty();
 
-        modal.append(modalTemplate(rowList[index]));
+        var row = rowList[index];
 
+        var coordArray = row.cells["GPS"].split(",");
+
+        if ($.isNumeric(coordArray[0]) && $.isNumeric(coordArray[1])) {
+            var icon = createIconForRow(row);
+            var marker = L.marker(coordArray, {
+                title: row.cells.Name,
+                riseOnHover: true,
+                icon: icon
+            });
+
+
+            modal_map.setView(coordArray, 15);
+
+            modal_map._onResize();
+
+        } else {
+            //TODO: hide map from modal
+        }
+
+        modal_markers.addLayer(marker);
+
+        modal.append(modalTemplate(row));
 
     });
 
@@ -188,13 +216,14 @@ function processRows(activeList) {
 
             if (key.toLowerCase().indexOf("gps") > -1) {
 
+
                 var rawGpsString = row.cells[key];
                 var coordArray = rawGpsString.split(",", 2);
                 if ($.isNumeric(coordArray[0]) && $.isNumeric(coordArray[1])) {
                     var marker = L.marker(coordArray, {
                         title: row.cells.Name,
                         riseOnHover: true,
-                        icon: icon,
+                        icon: icon
                         //bounceOnAdd: true
                     });
                     //NOTE: we ONLY want to create a marker if there's an actual GPS point specified
@@ -246,7 +275,6 @@ $(document).ready(function () {
         zoomControl: true
 
     }).setView([38.032, -78.492], 15);
-
     //map.dragging.disable();
     //map.touchZoom.disable();
     //map.doubleClickZoom.disable();
@@ -256,6 +284,12 @@ $(document).ready(function () {
 
     L.control.fullscreen({position: "bottomright"}).addTo(map);
 
+     modal_map = L.mapbox.map('map2', 'mlake900.lae6oebe', {
+        zoomControl: true
+    }).setView([38.032, -78.492], 15);
+    modal_map.scrollWheelZoom.disable();
+    modal_markers.addTo(modal_map);
+    //map2.zoomControl.setPosition('bottomright');
 
     var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/11aIxy4FbfcqwUprsP4FB5tnVXmEu_TRoK6ffLz7s7Rk/edit?pli=1#gid=66432575';
 

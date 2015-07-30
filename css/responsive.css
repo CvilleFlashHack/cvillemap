@@ -100,7 +100,7 @@
     width: 100%;
     background-color: #ffffff;
     border-bottom: 1px solid #dadada;
-    text-align: center;
+    text-align: left;
 }
 
 .filter_container ul{
@@ -128,8 +128,9 @@ ul.img-list {
     list-style-type: none;
     margin: 0;
     padding-top: 8px;
-    padding-bottom: 17px;
-    text-align: center;
+    padding-bottom: 5px;
+    text-align: left;
+    margin-left: 190px;
 }
 
 ul.img-list li {
@@ -146,9 +147,9 @@ span.text-content {
     cursor: pointer;
     display: inline-block;
     height: 10px;
-    left: -23px;
+    left: 3px;
     position: absolute;
-    top: 13px;
+    top: -45px;
     width: 90px;
     opacity: 0;
 }
@@ -308,11 +309,55 @@ header nav .login_btn:hover{
 }
 
 
+/* Search Bar Section */
 
-
-
-
-
+#tfheader{
+    background-color:#c3dfef;
+}
+#tfnewsearch{
+    float: inherit;
+    padding-bottom:10px;
+    margin-left: 950px;
+}
+.tftextinput{
+    margin: 0;
+    padding: 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:14px;
+    border:1px solid #0076a3; border-right:0px;
+    border-top-left-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+}
+.tfbutton {
+    margin: 0;
+    padding: 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:14px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border: solid 1px #0076a3; border-right:0px;
+    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+    background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+}
+.tfbutton:hover {
+    text-decoration: none;
+    background: #007ead;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+    background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+}
+/* Fixes submit button height problem in Firefox*/
+.tfbutton::-moz-focus-inner {
+    border: 0;
+}
+.tfclear{
+    clear:both;
+}
 
 
 
@@ -757,10 +802,11 @@ img.card_key {
     display: none;
     left: 200px;
     right: 200px;
-    top: 20px;
+    top: 10px;
     bottom:30px;
     padding: 10px;
     position: fixed;
+    overflow: scroll;
     border-radius: 10px;
     z-index: 1000;
 }
@@ -770,9 +816,9 @@ img.card_key {
     color: #FFFFFF;
     line-height: 17px;
     position: absolute;
-    right: -12px;
+    right: 13px;
     text-align: center;
-    top: -10px;
+    top: 8px;
     width: 24px;
     height: 24px;
     text-decoration: none;
@@ -789,6 +835,17 @@ img.card_key {
 
 #modal-content.modal_active, #modal-background.modal_active {
     display: block;
+}
+
+.map_modal {
+    width: 100%;
+    height: 220px;
+    position: relative;
+    /*background: url('../img/hero.jpg') no-repeat bottom center;*/
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 }
 
 .modal_title {

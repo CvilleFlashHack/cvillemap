@@ -91,10 +91,11 @@
 
         </i>
 
-        <div style="height: 4px; width: 100%;background-color: #03a9f4"></div>
-        <div class="filter_container">
-            <span style="font-family: roboto-slab, sans-serif; font-size: 18pt; color: #212121">Innovation Atlas</span><br>
-            <div style="font-family: sans-serif; color:#989898; margin-top: 6px">apply a filter:</div>
+        <div style="height: 4px; width: 100%;background-color: #03a9f4; overflow: hidden"></div>
+        <div class="filter_container" style="width: 100%">
+            <div style="width: 680px; float: left;">
+            <span style="font-family: roboto-slab, sans-serif; font-size: 18pt; color: #212121; margin-left: 95px">Innovation Atlas</span><br>
+            <div style="font-family: sans-serif; color:#989898; margin-top: 6px; margin-left: 95px">apply a filter:</div>
             <ul class="img-list">
                 <li>
                     <img src="map_icons/ic_filter_uva.svg" name="uva" class="filter_inactive">
@@ -135,6 +136,15 @@
                 <!--<li><img src="map_icons/ic_filter_tools_machinery.svg"></li>-->
 
             </ul>
+            </div>
+            <div>
+                <span style="font-family: roboto-slab, sans-serif; font-size: 18pt; color: #212121; margin-left: 95px">Find a company</span><br>
+                <form id="tfnewsearch" method="get" action="http://www.google.com" style="margin-top: 35px; margin-bottom: 30px">
+                    <input type="text" class="tftextinput" name="q" size="21" placeholder="enter business here..." maxlength="120">
+                    <input type="submit" value="search" class="tfbutton">
+                </form>
+            </div>
+
         </div>
 
     </section>
@@ -227,6 +237,9 @@
         <button id="modal-close" class="close">X</button>
         <img src="img/header_logo_mark_cvillization.svg" height=70px>
         <img src="img/header_logo_type_cvillization.svg" height=70px>
+
+        <div id="map2" class="map_modal"></div>
+
         <div id="company_content"></div>
     </div>​
 
