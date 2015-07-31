@@ -99,7 +99,7 @@
     padding-top: 8px;
     width: 100%;
     background-color: #ffffff;
-    border-bottom: 1px solid #dadada;
+    /*border-bottom: 1px solid #dadada;*/
     text-align: left;
 }
 
@@ -142,12 +142,15 @@ ul.img-list li {
 }
 
 span.text-content {
+    text-align: center;
     background: rgba(201, 201, 201, 0);
     color: #858585;
+    font-size: 15px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: pointer;
     display: inline-block;
     height: 10px;
-    left: 3px;
+    left: -24px;
     position: absolute;
     top: -45px;
     width: 90px;
