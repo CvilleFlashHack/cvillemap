@@ -63,8 +63,8 @@
 .legend {
     position: absolute;
     display: block;
-    margin-left: 0%;
-    margin-top: 12%;
+    margin-left: 0;
+    margin-top:120px;
     top:0;
     width: 200px;
     z-index: 1;
@@ -99,8 +99,8 @@
     padding-top: 8px;
     width: 100%;
     background-color: #ffffff;
-    /*border-bottom: 1px solid #dadada;*/
-    text-align: left;
+    border-bottom: 1px solid #dadada;
+    text-align: center;
 }
 
 .filter_container ul{
@@ -114,7 +114,8 @@
 .filter_container li img {
     width: 42px;
     height: 42px;
-    cursor: pointer
+    cursor: pointer;
+    margin-bottom: 14px;
 }
 
 .filter_inactive {
@@ -127,10 +128,9 @@
 ul.img-list {
     list-style-type: none;
     margin: 0;
-    padding-top: 0px;
-    padding-bottom: 5px;
-    text-align: left;
-    margin-left: 190px;
+    padding-top: 8px;
+    padding-bottom: 9px;
+    text-align: center;
 }
 
 ul.img-list li {
@@ -145,16 +145,15 @@ span.text-content {
     text-align: center;
     background: rgba(201, 201, 201, 0);
     color: #858585;
-    font-size: 15px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: pointer;
     display: inline-block;
     height: 10px;
-    left: -24px;
+    left: -23px;
     position: absolute;
-    top: -45px;
+    top: 1px;
     width: 90px;
     opacity: 0;
+    font-family: "lato-regular", Helvetica, Arial, sans-serif ;
 }
 
 ul.img-list li:hover span.text-content {
@@ -165,6 +164,7 @@ span.text-content span {
     display: inline-block;
     text-align: center;
     vertical-align: top;
+    font-size: 13px;
 }
 
 .header_mark {
@@ -325,7 +325,7 @@ header nav .login_btn:hover{
 .tftextinput{
     margin: 0;
     padding: 5px 15px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "lato-regular", Helvetica, Arial, sans-serif;
     font-size:14px;
     border:1px solid #0076a3; border-right:0px;
     border-top-left-radius: 5px 5px;
@@ -334,7 +334,7 @@ header nav .login_btn:hover{
 .tfbutton {
     margin: 0;
     padding: 5px 15px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "lato-regular", Helvetica, Arial, sans-serif;
     font-size:14px;
     outline: none;
     cursor: pointer;
@@ -666,7 +666,7 @@ img.card_key {
 
 
 .card_address {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "lato-regular", Helvetica, Arial, sans-serif;
     font-size: 9pt;
     color: #827f84;
 }

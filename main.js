@@ -270,11 +270,14 @@ $(document).ready(function () {
 
     modalTemplate = Handlebars.compile($('#modal_template').html());
 
+    var zoomLevel = 15;
+    if ($(window).width() < 550) zoomLevel = 12;
+
     L.mapbox.accessToken = 'pk.eyJ1IjoibWxha2U5MDAiLCJhIjoiSXV0UEF6dyJ9.8ZrYcafYb59U67LHErUegw';
     var map = L.mapbox.map('map', 'mlake900.lae6oebe', {
         zoomControl: true
 
-    }).setView([38.032, -78.492], 15);
+    }).setView([38.032, -78.492], zoomLevel);
     //map.dragging.disable();
     //map.touchZoom.disable();
     //map.doubleClickZoom.disable();
