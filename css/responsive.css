@@ -840,7 +840,7 @@ img.card_key {
     display: block;
 }
 
-.map_modal {
+#modal_map_element {
     width: 100%;
     height: 220px;
     position: relative;

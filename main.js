@@ -129,28 +129,35 @@ var rowList = [];
 
         var row = rowList[index];
 
-        var coordArray = row.cells["GPS"].split(",");
+        var coordArray = ["38.0299","-78.4790"];
 
-        if ($.isNumeric(coordArray[0]) && $.isNumeric(coordArray[1])) {
-            var icon = createIconForRow(row);
-            var marker = L.marker(coordArray, {
-                title: row.cells.Name,
-                riseOnHover: true,
-                icon: icon
-            });
+        $('#modal_map_element').hide();
 
+        for (var key in row.cells) {
 
-            modal_map.setView(coordArray, 15);
+            if (key.toLowerCase().indexOf("gps") > -1) {
 
-            modal_map._onResize();
+                coordArray = row.cells[key].split(",");
 
-        } else {
-            //TODO: hide map from modal
+                if ($.isNumeric(coordArray[0]) && $.isNumeric(coordArray[1])) {
+                    var icon = createIconForRow(row);
+                    var marker = L.marker(coordArray, {
+                        title: row.cells.Name,
+                        riseOnHover: true,
+                        icon: icon
+                    });
+                    $('#modal_map_element').show();
+
+                    modal_map.setView(coordArray, 15);
+
+                    modal_map._onResize();
+
+                    modal_markers.addLayer(marker);
+
+                    modal.append(modalTemplate(row));
+                }
+            }
         }
-
-        modal_markers.addLayer(marker);
-
-        modal.append(modalTemplate(row));
 
     });
 
@@ -287,12 +294,12 @@ $(document).ready(function () {
 
     L.control.fullscreen({position: "bottomright"}).addTo(map);
 
-     modal_map = L.mapbox.map('map2', 'mlake900.lae6oebe', {
+     modal_map = L.mapbox.map('modal_map_element', 'mlake900.lae6oebe', {
         zoomControl: true
     }).setView([38.032, -78.492], 15);
     modal_map.scrollWheelZoom.disable();
     modal_markers.addTo(modal_map);
-    //map2.zoomControl.setPosition('bottomright');
+    //modal_map.zoomControl.setPosition('bottomright');
 
     var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/11aIxy4FbfcqwUprsP4FB5tnVXmEu_TRoK6ffLz7s7Rk/edit?pli=1#gid=66432575';
 
