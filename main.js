@@ -13,6 +13,8 @@ var businessTemplate;
 
 var modalTemplate;
 
+
+//create icons for companies based on their attributes
 function createIconForRow(row) {
     var icon;
 
@@ -237,12 +239,13 @@ function processRows(activeList) {
 
                     //TODO: replace with handlebars template
                     marker.bindPopup("<b>" + row.cells.Name + "</b><br>" + row.cells['Numberofemployees'] + "<br>" + row.cells.PhysicalAddress + "<br><em>" + row.cells.OneLineDescriptionofYourCompany + "</em><br><a target='_blank' href='" + row.cells.Website + "'>" + row.cells.Website + "</a>");
-                    if(row.cells['Checked'] == 1) {
+                    markers.addLayer(marker);
+                    /*if(row.cells['Checked'] == 1) {
                         markers.addLayer(marker);
                     }
                     else{
                         continue;
-                    }
+                    }*/
 
                 }
             }
@@ -251,9 +254,9 @@ function processRows(activeList) {
         row.cells["isHiring"] = row.cells["NowHiring?"] === 'Yes';
 
         row.idx = idx;
-        if(row.cells['Checked']==1) {
+        //if(row.cells['Checked']==1) {
             $('#business_listings').append(businessTemplate(row));
-        }
+        //}
 
     }
 }
